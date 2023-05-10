@@ -13,14 +13,21 @@ public class ServerMain {
     public static void main(String[] args) throws Exception {
         System.out.println("Starting the Test Server main!");
 
-        String content = readFile("<path to 1MB.json >");
+        String content = readFile("/home/vikum/Desktop/ei-ticket/BNY/BNYTEST/Testsuit/HTTPCoreScenarioTests/src/main/resources/1MB.json");
 
-        System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate200 backend");
+        /*System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate200 backend");
         SSLServerSendImediate200 sslServerSendImediate200 = new SSLServerSendImediate200();
         sslServerSendImediate200.run(backendServerPort, content);
         Thread.sleep(2000000);
         sslServerSendImediate200.shutdownServer();
-        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate200 backend");
+        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate200 backend");*/
+
+        System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate400 backend");
+        SSLServerSendImediate400 sslServerSendImediate400 = new SSLServerSendImediate400();
+        sslServerSendImediate400.run(backendServerPort, content);
+        Thread.sleep(2000000);
+        sslServerSendImediate400.shutdownServer();
+        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate400 backend");
 
     }
     public static String readFile(String fileLocation) throws IOException {
