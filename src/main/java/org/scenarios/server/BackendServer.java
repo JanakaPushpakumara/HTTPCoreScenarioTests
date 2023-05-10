@@ -5,8 +5,8 @@ import java.net.ServerSocket;
 
 public class BackendServer {
 
-    public static String ServerkeyStoreLocation = "<keystore location>";
-    public static String ServerkeyStorePassword = "<keystore password>";
+    public static String ServerkeyStoreLocation = "/home/vikum/Desktop/ei-ticket/BNY/BNYTEST/wso2am-3.2.0-65s/wso2am-3.2.0/repository/resources/security/wso2carbon.jks";
+    public static String ServerkeyStorePassword = "wso2carbon";
     protected ServerSocket ss;
     public static final String CRLF = "\r\n";
     public BackendServer() {
