@@ -29,19 +29,19 @@ public class ServerMain {
         sslServerSendImediate400.shutdownServer();
         System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate400 backend");*/
 
-        /*System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate503 backend");
+        System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate503 backend");
         SSLServerSendImediate503 sslServerSendImediate503 = new SSLServerSendImediate503();
         sslServerSendImediate503.run(backendServerPort, content);
         Thread.sleep(2000000);
         sslServerSendImediate503.shutdownServer();
-        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate503 backend");*/
+        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate503 backend");
 
-        System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate300 backend");
+    /*    System.out.println(" >>>>>>>>>>>>>>>>>>>>>>>>>>> Start sslServerSendImediate300 backend");
         SSLServerSendImediate300 sslServerSendImediate300 = new SSLServerSendImediate300();
         sslServerSendImediate300.run(backendServerPort, content);
         Thread.sleep(2000000);
         sslServerSendImediate300.shutdownServer();
-        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate300 backend");
+        System.out.println(" <<<<<<<<<<<<<<<<<<<<<<<<<<< End sslServerSendImediate300 backend");*/
 
     }
     public static String readFile(String fileLocation) throws IOException {
