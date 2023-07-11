@@ -5,7 +5,7 @@ import org.scenarios.client.NonBlockingClientSendContentLessThanContentLength;
 import org.scenarios.client.SimpleHTTPSClient;
 import org.scenarios.client.SimpleNonBlockingClient;
 import org.scenarios.client.helpers.RequestMethods;
-import org.scenarios.server.AbstractSSLServer;
+import org.scenarios.server.scenario.AbstractSSLServer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -125,7 +125,7 @@ public class PassThroughMessageProcessorPoolTests {
         Thread thread = new Thread(() -> {
             try {
                 System.out.println(" >>>>> Start " + server.getClass().getSimpleName() + " backend with response content length : "+ responseContent.getBytes().length);
-                server.run(port, responseContent);
+                server.start(port, responseContent);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
