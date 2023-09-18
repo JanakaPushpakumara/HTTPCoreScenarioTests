@@ -4,7 +4,8 @@ import org.scenarios.client.AbstractSSLClient;
 import org.scenarios.client.NonBlockingClientSendContentLessThanContentLength;
 import org.scenarios.client.SimpleNonBlockingClient;
 import org.scenarios.client.helpers.RequestMethods;
-import org.scenarios.server.*;
+import org.scenarios.server.scenario.*;
+
 import java.io.*;
 
 public class ScenarioTests {
@@ -25,54 +26,54 @@ public class ScenarioTests {
         // SSL Server Send Immediate Response with Payload Test cases 1 to 8
 
         //SSLServerSendImediate503
-        server = StartServer(new SSLServerSendImediate503(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate503(), Content1MB, backendServerPort );
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate200
-        server = StartServer(new SSLServerSendImediate200(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate200(), Content1MB, backendServerPort );
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate300
-        server = StartServer(new SSLServerSendImediate300(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate300(), Content1MB, backendServerPort );
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate400
-        server = StartServer(new SSLServerSendImediate400(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate400(), Content1MB, backendServerPort );
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new SimpleNonBlockingClient(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         // SSL Server Send Immediate Response Without Payload Test cases 8 to ....
 
         //SSLServerSendImediate503WithoutPayload
-        server = StartServer(new SSLServerSendImediate503WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate503WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate200WithoutPayload
-        server = StartServer(new SSLServerSendImediate200WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate200WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate300WithoutPayload
-        server = StartServer(new SSLServerSendImediate300WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate300WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate400WithoutPayload
-        server = StartServer(new SSLServerSendImediate400WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate400WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
 
 ////////// Client send only the request content partially and not sending rest of the content, source connection will time out. Ex: Send content less than the content length.
@@ -80,70 +81,70 @@ public class ScenarioTests {
         // SSL Server Send Immediate Response with Payload Test cases 1 to 16
 
         //SSLServerSendImediate503
-        server = StartServer(new SSLServerSendImediate503(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate503(), Content1MB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
-        server = StartServer(new SSLServerSendImediate503(), Content2KB, backendServerPort );
+        server.stop();
+        server = StartServer(new SSLServerSendImmediate503(), Content2KB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate200
-        server = StartServer(new SSLServerSendImediate200(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate200(), Content1MB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
-        server = StartServer(new SSLServerSendImediate200(), Content2KB, backendServerPort );
+        server.stop();
+        server = StartServer(new SSLServerSendImmediate200(), Content2KB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate300
-        server = StartServer(new SSLServerSendImediate300(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate300(), Content1MB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
-        server = StartServer(new SSLServerSendImediate300(), Content2KB, backendServerPort );
+        server.stop();
+        server = StartServer(new SSLServerSendImmediate300(), Content2KB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate400
-        server = StartServer(new SSLServerSendImediate400(), Content1MB, backendServerPort );
+        server = StartServer(new SSLServerSendImmediate400(), Content1MB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
-        server = StartServer(new SSLServerSendImediate400(), Content2KB, backendServerPort );
+        server.stop();
+        server = StartServer(new SSLServerSendImmediate400(), Content2KB, backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         // SSL Server Send Immediate Response Without Payload Test cases 17 to 24
 
         //SSLServerSendImediate503WithoutPayload
-        server = StartServer(new SSLServerSendImediate503WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate503WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate200WithoutPayload
-        server = StartServer(new SSLServerSendImediate200WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate200WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate300WithoutPayload
-        server = StartServer(new SSLServerSendImediate300WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate300WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
         //SSLServerSendImediate400WithoutPayload
-        server = StartServer(new SSLServerSendImediate400WithoutPayload(), "", backendServerPort );
+        server = StartServer(new SSLServerSendImmediate400WithoutPayload(), "", backendServerPort );
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content1MB, RequestMethods.POST);
         StartClient( new NonBlockingClientSendContentLessThanContentLength(serverHost, serverPort, Bearer), Content2KB, RequestMethods.POST);
-        server.shutdownServer();
+        server.stop();
 
     }
     private static void StartClient(AbstractSSLClient client, String payload, RequestMethods method ) {
@@ -171,7 +172,7 @@ public class ScenarioTests {
         Thread thread = new Thread(() -> {
             try {
                 System.out.println(" >>>>> Start " + server.getClass().getSimpleName() + " backend with response content length : "+ responseContent.getBytes().length);
-                server.run(port, responseContent);
+                server.start(port, responseContent);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
